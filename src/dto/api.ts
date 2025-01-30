@@ -2435,9 +2435,9 @@ export interface components {
             /**
              * Gallery Show Filter
              * @description Show instagramlike filter (pilgram2).
-             * @default true
+             * @default none
              */
-            gallery_show_filter: boolean;
+            gallery_show_filter: "none" | "Pilgram2" | "StableDiffusion";
             /**
              * Gallery Filter Userselectable
              * @default [
@@ -2673,6 +2673,12 @@ export interface components {
          */
         PilgramFilter: "original" | "_1977" | "aden" | "ashby" | "amaro" | "brannan" | "brooklyn" | "charmes" | "clarendon" | "crema" | "dogpatch" | "earlybird" | "gingham" | "ginza" | "hefe" | "helena" | "hudson" | "inkwell" | "juno" | "kelvin" | "lark" | "lofi" | "ludwig" | "maven" | "mayfair" | "moon" | "nashville" | "perpetua" | "poprocket" | "reyes" | "rise" | "sierra" | "skyline" | "slumber" | "stinson" | "sutro" | "toaster" | "valencia" | "walden" | "willow" | "xpro2";
         /**
+         * StableDiffusionFilter
+         * @description These are examples for style prompts that apply img2img conversion using stable diffusion
+         * @enum {string}
+         */
+        StableDiffusionFilter: "original" | "anime" | "astronaut" |  "caricature"  | "clay" | "comic" | "gotcha" | "impasto" | "kids" | "marble" | "medieval" | "neotokyo" | "pencil" | "retro" | "scifi" | "vaporwave" | "watercolor";
+        /**
          * Process mediaitem before printing on paper
          * @description Configure stages how to process mediaitem before printing on paper.
          */
@@ -2748,6 +2754,8 @@ export interface components {
         SingleImageProcessing: {
             /** @default original */
             filter: components["schemas"]["PilgramFilter"];
+            /** @default original */
+            sdfilter: components["schemas"]["StableDiffusionFilter"];
             /**
              * Fill Background Enable
              * @description Apply solid color background to captured image (useful only if image is extended or background removed)
